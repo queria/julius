@@ -39,6 +39,7 @@ const char* pref_data_dir(void)
         size_t length = fread(data_dir, 1, 1000, fp);
         fclose(fp);
         if (length > 0) {
+            // FIXME(queria): trim whitespaces (e.g. newline at the end of the path?)
             data_dir[length] = 0;
             return data_dir;
         }

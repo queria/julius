@@ -418,7 +418,10 @@ static int pre_init(const char *custom_data_dir)
         const char *user_dir = pref_data_dir();
         if (user_dir) {
             SDL_Log("Loading game from user pref %s", user_dir);
-            if (chdir(user_dir) == 0 && game_pre_init()) {
+            if(chdir(user_dir) != 0) {
+                SDL_Log("Failed to chdir to '%s'", user_dir);
+            }
+            else if (game_pre_init()) {
                 return 1;
             }
         }
