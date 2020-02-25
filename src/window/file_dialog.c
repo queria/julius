@@ -93,6 +93,7 @@ static void init(file_type type, file_dialog_type dialog_type)
 
     strncpy(data.selected_file, data.file_data->last_loaded_file, FILE_NAME_MAX);
     keyboard_start_capture(data.typed_name, FILE_NAME_MAX, 0, MAX_FILE_WINDOW_TEXT_WIDTH, FONT_NORMAL_WHITE);
+    button_select_file(data.file_list->num_files - 1, 0);
 }
 
 static void draw_scrollbar_dot(void)
