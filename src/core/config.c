@@ -31,6 +31,7 @@ static const char *ini_keys[] = {
     "gameplay_dynamic_granaries",
     "gameplay_houses_stockpile_more",
     "gameplay_buyers_dont_distribute",
+    "ui_skip_logo"
 };
 
 static int values[CONFIG_MAX_ENTRIES];
@@ -66,6 +67,7 @@ void config_set_defaults(void)
     values[CONFIG_GP_CH_MORE_STOCKPILE] = 0;
     values[CONFIG_GP_CH_NO_BUYER_DISTRIBUTION] = 0;
     values[CONFIG_UI_VISUAL_FEEDBACK_ON_DELETE] = 0;
+    values[CONFIG_UI_SKIP_LOGO] = 0;
 }
 
 void config_load(void)

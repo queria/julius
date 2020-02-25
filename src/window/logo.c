@@ -34,6 +34,10 @@ static void handle_mouse(const mouse *m)
 
 void window_logo_show(int show_patch_message)
 {
+    if (config_get(CONFIG_UI_SKIP_LOGO)) {
+        window_main_menu_show(0);
+        return;
+    }
     window_type window = {
         WINDOW_LOGO,
         draw_background,
