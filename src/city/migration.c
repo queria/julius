@@ -5,6 +5,7 @@
 #include "city/figures.h"
 #include "city/message.h"
 #include "core/calc.h"
+#include "core/log.h"
 #include "game/tutorial.h"
 
 static void update_status(void)
@@ -139,6 +140,8 @@ void city_migration_determine_no_immigration_cause(void)
             city_data.migration.no_immigration_cause = 5;
             break;
     }
+    log_info("No-Migration cause: ", 0,
+            ((city_data.sentiment.low_mood_cause * 100) + city_data.migration.no_immigration_cause));
 }
 
 int city_migration_no_immigation_cause(void)

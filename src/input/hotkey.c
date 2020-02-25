@@ -2,7 +2,9 @@
 
 #include "building/construction.h"
 #include "building/type.h"
+#include "city/data_private.h"
 #include "city/finance.h"
+#include "city/migration.h"
 #include "city/victory.h"
 #include "city/view.h"
 #include "city/warning.h"
@@ -152,6 +154,16 @@ static void cheat_money(void)
     }
 }
 
+static void cheat_immigrants(void)
+{
+    if (data.is_cheating) {
+        int32_t real_sentiment = city_data.sentiment.value;
+        city_data.sentiment.value = 80;
+        city_migration_update();
+        city_data.sentiment.value = real_sentiment;
+    }
+}
+
 static void editor_toggle_battle_info(void)
 {
     if (window_is(WINDOW_EDITOR_EMPIRE)) {
@@ -233,6 +245,9 @@ void hotkey_character(int c, int with_ctrl, int with_alt)
                 break;
             case 'v':
                 cheat_victory();
+                break;
+            case 'i':
+                cheat_immigrants();
                 break;
 
             // Azerty keyboards need alt gr for these keys
