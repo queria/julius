@@ -406,6 +406,7 @@ set(GRAPHICS_FILES
     ${PROJECT_SOURCE_DIR}/src/graphics/graphics.c
     ${PROJECT_SOURCE_DIR}/src/graphics/image.c
     ${PROJECT_SOURCE_DIR}/src/graphics/image_button.c
+    ${PROJECT_SOURCE_DIR}/src/graphics/labeled_button.c
     ${PROJECT_SOURCE_DIR}/src/graphics/lang_text.c
     ${PROJECT_SOURCE_DIR}/src/graphics/menu.c
     ${PROJECT_SOURCE_DIR}/src/graphics/panel.c
